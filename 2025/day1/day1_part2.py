@@ -7,14 +7,19 @@ def turn_handle(old_number, rotation, number_to_add):
     new_number += (number_to_add, -number_to_add)[rotation == "L"]
     while (new_number > 99 or new_number < 0):
         if new_number > 99:
+            # old_number = new_number
             new_number -= 100
             tmp_number_of_zeroes +=1
         elif new_number < 0:
+            # old_number = new_number
             new_number += 100
             tmp_number_of_zeroes +=1
 
-    if (new_number == 0 and tmp_number_of_zeroes != 0):
-            tmp_number_of_zeroes -=1
+    if (tmp_number_of_zeroes != 0):
+            if(old_number==0):
+                tmp_number_of_zeroes -=1
+            if(new_number==0):
+                tmp_number_of_zeroes -=1
 
     return [new_number, tmp_number_of_zeroes]
 
@@ -31,7 +36,7 @@ for i in range(len(lines)):
     number = results[0]
     number_of_zeroes += results[1]
     
-    if number == 0 and results[1] == 0:
+    if number == 0:
         number_of_zeroes +=1
     print("The dial is rotated " + lines[i] + " to point at " + str(number) + ("",  " during this rotation, it points at 0 " + str(results[1]) + " times")[results[1] > 0])
     #print("the number of zeroes is " + str(number_of_zeroes))
