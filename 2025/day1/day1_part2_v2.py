@@ -1,0 +1,45 @@
+print("advent of code day 1")
+#lines = pathlib.Path('C:/path/numbers.txt').read_text().splitlines()
+
+def turn_handle(old_number, rotation, number_to_add):
+    tmp_number_of_zeroes = 0  
+    new_number = old_number
+    new_number2 = (old_number + (number_to_add, -number_to_add)[rotation == "L"]) %100
+    tmp_number_of_zeroes2 =  (old_number + (number_to_add, -number_to_add)[rotation == "L"]) //100 +1
+
+    for i in range(number_to_add):
+        new_number += (1, -1)[rotation == "L"]
+        if new_number == 100:
+            new_number = 0
+        elif new_number == -1:
+            new_number = 99
+
+        if new_number == 0:
+            tmp_number_of_zeroes += 1
+
+    return [new_number2, tmp_number_of_zeroes]
+
+with open('./day1.txt') as f:
+    lines = f.read().splitlines()
+
+print("The dial starts by pointing at 50.")
+
+number = 50
+number_of_zeroes = 0
+
+for i in range(len(lines)):
+    results = turn_handle(number, lines[i][0], int(lines[i][1:]))
+    number = results[0]
+    number_of_zeroes += results[1]
+    
+    # if number == 0:
+    #     number_of_zeroes +=1
+    print("The dial is rotated " + lines[i] + " to point at " + str(number) + ("",  " during this rotation, it points at 0 " + str(results[1]) + " times")[results[1] > 0])
+    #print("the number of zeroes is " + str(number_of_zeroes))
+
+
+print("the number of zeroes is " + str(number_of_zeroes))
+print(number_of_zeroes)
+
+
+    
