@@ -10,6 +10,7 @@ def is_id_invalid(id):
 
     if id_length % 2 == 0:
         if (id_str[:int(id_length/2)] == id_str[int(id_length/2):]):
+            print("id length " + str(id_length))
             print("id invalid: " + id_str)
             return True
     else:
