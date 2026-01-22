@@ -1,4 +1,4 @@
-print("advent of code day 6")
+print("advent of code day 7")
 
 global biggest_area
 biggest_area = 0
