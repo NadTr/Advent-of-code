@@ -1,27 +1,42 @@
 print("advent of code day 7")
 
-global biggest_area
-biggest_area = 0
+global number_of_splits
+number_of_splits = 0
 
 with open('./day7.txt') as f:
     file = f.read().splitlines()
 
-def rectangle_area(point1, point2):
-    point1 = point1.split(",")
-    point2 = point2.split(",")
-    result = 0
-    result = abs(int(point2[0])-int(point1[0]) + 1)*abs(int(point2[1])-int(point1[1]) +1)
-    # print("area between point:" + str(point1) +" and point: "+ str(point2) + " is equal to " +str(result))
-    return result
-for point1 in file:
-    for point2 in file:
-        area = rectangle_area(point1, point2)
-        if biggest_area < area:
-            biggest_area = area
+length = len(file)
+
+for line in range(len(file)):
+    file[line] = list(file[line]) 
+
+start_point = [0, file[0].index("S")]
+
+def follow_line(start_point):
+    global number_of_splits
+    for ind in range(start_point[0], length):
+        if file[ind][start_point[1]] == "^":
+            if file[ind][start_point[1]-1] == "." or file[ind][start_point[1]+1] == ".":
+                number_of_splits += 1
+
+            if file[ind][start_point[1]-1] == ".":
+                # number_of_splits += 1
+                follow_line([ind, start_point[1] - 1])
+            if file[ind][start_point[1]+1] == ".":
+                # number_of_splits += 1
+                follow_line([ind, start_point[1] + 1])
+            break
+        else:
+            file[ind][start_point[1]] = "|"
+
+        # print(file[ind][start_point[1]])
 
 
-
-print("There area of the biggest ractangle is equal to: "+ str(biggest_area))
+follow_line(start_point)
+# for line in file:
+    # print(line)
+print("The tachyon beam is split a total of "+ str(number_of_splits) + " times.")
 
 
     
