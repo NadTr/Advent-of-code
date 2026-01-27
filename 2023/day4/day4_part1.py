@@ -1,5 +1,4 @@
-import re
-print("advent of code 2023 day 3")
+print("advent of code 2023 day 4")
 
 global file
 global sum_of_card_points
