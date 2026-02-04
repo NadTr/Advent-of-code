@@ -1,34 +1,29 @@
-print("advent of code 2016 day 1")
+print("advent of code 2016 day 2")
 
 with open('./input.txt') as f:
-    file = f.read().split(", ")
+    file = f.read().splitlines()
 
 directions = {
-    "up":[0, -1],
-    "right":[1, 0],
-    "down":[0, 1],
-    "left":[-1, 0]
+    "L":[0, -1],
+    "D":[1, 0],
+    "R":[0, 1],
+    "U":[-1, 0]
 }
 
-def change_direction(dir, turn):
-    if dir == "up":
-        return "right" if turn == "R" else "left"
-    elif dir == "right":
-        return "down" if turn == "R" else "up"
-    elif dir == "down":
-        return "left" if turn == "R" else "right"
-    elif dir == "left":
-        return "up" if turn == "R" else "down"
-    
+pave = [[1,2,3],[4,5,6],[7,8,9]] 
 
-positon = [0, 0]
-dir = "up"
+pos = [1,1]
+password = ""
 
-for step in file:
-    dir = change_direction(dir,step[0])
-    positon[0] += int(step[1:]) * directions[dir][0]
-    positon[1] += int(step[1:]) * directions[dir][1]
-    print(positon)
+for line in file:
+    for step in line:
+        if pos[0]+ directions[step][0] >= 0 and pos[0]+ directions[step][0] <= 2:
+            pos[0] += directions[step][0]
+        if pos[1]+ directions[step][1] >= 0 and pos[1]+ directions[step][1] <= 2:
+            pos[1] += directions[step][1]
+        # print(step, pos)
+    number = pave[pos[0]][pos[1]]
+    password += str(number)
+    # print(number, password)
 
-    
-print("The end position is ", positon, "at a distance of ", sum(positon))
+print("The password is ", password)
