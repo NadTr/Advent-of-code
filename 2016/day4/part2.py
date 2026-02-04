@@ -24,7 +24,7 @@ for line in file:
         add_letter_to_result(i, letters[i])
 
 for result in results:
-    res = max(result, key=result.get)
+    res = min(result, key=result.get)
     password += res
 
 
