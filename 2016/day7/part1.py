@@ -29,29 +29,9 @@ def is_ip_valid(ip):
                         one_ip_valid = True
     return one_ip_valid
 
-    # ip_chars = list(ip)
-    # one_ip_valid = False
-    # for i in range(len(ip_chars)):
-    #     if i < len(ip_chars) -3:
-    #         if "[" not in ip_chars[i:i+4] and "]" not in ip_chars[i:i+4]:
-    #             # if ip_chars[i] != ip_chars[i+1] and ip_chars[i:i+2] == ip_chars[i+2:i+4]:
-    #             if ip_chars[i] != ip_chars[i+1] and ip_chars[i]+ip_chars[i+1] == ip_chars[i+3]+ip_chars[i+2]:
-    #                 if i > 0 and  i+4 < len(ip_chars) and (ip_chars[i-1] == "[" and ip_chars [i+4] =="]"):
-    #                     i += 5
-    #                     print(i, i+5, ip[i-1:i+5])
-    #                     return False
-    #                 else:
-    #                     print(i, i +4, ip[i:i+4])
-    #                     i += 4
-    #                     one_ip_valid = True
-    # return one_ip_valid
-
 
 for line in file:
     if is_ip_valid(line):
         number_of_valid_ips += 1
 
-
-
-
-print("The number of valid ips is ", number_of_valid_ips)
+print("The number of ips that supprt TLS is ", number_of_valid_ips)
