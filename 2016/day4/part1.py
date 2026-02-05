@@ -1,31 +1,48 @@
+import re
 print("advent of code 2016 day 4")
 
 with open('./input.txt') as f:
     file = f.read().splitlines()
 
-results = []
-password = ""
+sum_of_valid_rooms = 0
 
-for i in range(len(file[0])):
-    dictio = {}
-    results += [dictio]
+def return_name_to_dict(name):
+    results = {}
+    letters=list(name)
+    for letter in letters:
+        if letter in results:
+            results[letter] += 1
+        else:
+            results.update({letter: 1}) 
+    return results
 
-def add_letter_to_result(col, letter):
-    # print(col, letter)
-    if letter in results[col]:
-        results[col][letter] += 1
-    else:
-        results[col].update({letter: 1}) 
-    
+
+def is_room_valid(name, checksum):
+    name = re.sub("-", "", name)
+    name_letters = return_name_to_dict(name)
+    sorted_letters = dict(sorted(name_letters.items(), key=lambda item:item[1], reverse=True))
+    keys_found = {}
+
+    for key, value in sorted_letters.items():
+        if value in keys_found:
+            keys_found[value] += key
+        else:
+            keys_found.update({value:key}) 
+
+    result =""
+    for k, v in keys_found.items():
+        result += ''.join(sorted(v))
+
+    if result[:5] == checksum:
+        return True
+    else: 
+        return False
+
 
 for line in file:
-    letters = list(line)
-    for i in range(len(letters)):
-        add_letter_to_result(i, letters[i])
+    room = line.split("[")
+    if is_room_valid(room[0][:-4],room[1][:-1]):
+        # print(int(room[0][-3:]))
+        sum_of_valid_rooms += int(room[0][-3:])
 
-for result in results:
-    res = max(result, key=result.get)
-    password += res
-
-
-print("The password is ", password)
+print("The number of valid rooms is ", sum_of_valid_rooms)

@@ -1,4 +1,4 @@
-print("advent of code 2016 day 4")
+print("advent of code 2016 day 6")
 
 with open('./input.txt') as f:
     file = f.read().splitlines()
@@ -24,7 +24,7 @@ for line in file:
         add_letter_to_result(i, letters[i])
 
 for result in results:
-    res = min(result, key=result.get)
+    res = max(result, key=result.get)
     password += res
 
 
