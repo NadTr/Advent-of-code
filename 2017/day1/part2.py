@@ -5,12 +5,12 @@ with open('./input.txt') as f:
 
 def add_captcha(line):
     result = 0
+    half = len(line) // 2
     for i in range(len(line)):
         digit = line[i]
-        next_digit = line[i+1] if i < len(line) - 1 else line[0]
+        next_digit = line[i+ half] if i < half else line[i-half]
         if digit == next_digit:
             result += int(digit)
-        # print(line, digit, next_digit, result)
     return result
 
 captcha_sum = add_captcha(file)
