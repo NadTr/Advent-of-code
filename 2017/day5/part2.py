@@ -5,15 +5,13 @@ with open('./input.txt') as f:
 
 def new_index_line(index):
     line = file[index]
-    # print(line,  "vaut en int()", int(line))
-    file[index] = str(int(line) + 1)
+    file[index] = str(int(line) + 1 if int(line) < 3 else int(line) - 1)
     return (index + int(line))
 
 
 number_of_steps = 0
 line = 0
 while line < len(file):
-    print(line, file)
     line = new_index_line(line)
     number_of_steps += 1
 
