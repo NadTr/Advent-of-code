@@ -6,7 +6,7 @@ script_location = Path(__file__).absolute().parent
 with open(script_location /'input.txt') as f:
       file = f.read().splitlines()
 
-shortest_distance = 0
+longest_distance = 0
 roads = {}
             
 for i in range(len(file)):
@@ -32,9 +32,7 @@ for combi in routes:
         start_point = combi[i]
         dest = combi[0 if i >= len(combi) else i+1]
         distance += roads[start_point][dest]
-    if shortest_distance == 0:
-         shortest_distance = distance
-    elif shortest_distance > distance:
-         shortest_distance = distance
+    if longest_distance < distance:
+         longest_distance = distance
 
-print("The distance of the shortest route is ", shortest_distance)
+print("The distance of the shortest route is ", longest_distance)
