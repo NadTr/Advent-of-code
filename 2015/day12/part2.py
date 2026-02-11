@@ -1,7 +1,8 @@
+from pathlib import Path
 import re, json
 print("advent of code 2015 day 12")
-
-with open('./input.txt') as f:
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:
     file = f.read()
 
 json_file = json.loads(file)
@@ -10,7 +11,7 @@ def hook(dict):
   if "red" not in dict.values(): return dict
 correct_file = str(json.loads(file, object_hook=hook))
 
-numbers = re.findall('[-+]?\d+', correct_file)
+numbers = re.findall(r'[-+]?\d+', correct_file)
 numbers = list(map(int, numbers))
 total_sum = sum(numbers)
 

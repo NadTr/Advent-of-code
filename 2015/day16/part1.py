@@ -1,5 +1,10 @@
+from pathlib import Path
 import re
 print("advent of code 2015 day 16")
+
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:    
+    file = f.read().splitlines()
 
 datas = {
     "children": 3,
@@ -15,8 +20,6 @@ datas = {
 }
 aunts = {}
 
-with open('./input.txt') as f:
-    file = f.read().splitlines()
 
 for i in range(len(file)):
     line = re.sub(r'Sue (\d+): ', r'\1 \\ ', file[i])

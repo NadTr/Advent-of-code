@@ -14,8 +14,7 @@ found_hash = False
 step = 1
 while(not found_hash):
     result = string_to_hex(file + str(step))
-    # print("result of hash ", file, step, " is = ", result )
-    if result[0:5] == "00000":
+    if result[0:6] == "000000":
         print("The MD5 hash is ", result, step)
         found_hash = True
     step += 1

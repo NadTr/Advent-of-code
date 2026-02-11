@@ -1,6 +1,8 @@
+from pathlib import Path
 print("advent of code 2015 day 2")
 
-with open('./input.txt') as f:
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:
     file = f.read().splitlines()
 
 result = 0

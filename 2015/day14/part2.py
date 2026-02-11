@@ -1,12 +1,13 @@
+from pathlib import Path
 print("advent of code 2015 day 14")
+
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:    file = f.read().splitlines()
 
 run_time = 2503
 datas = {}
 named_distances = {}
 scores = {}
-
-with open('./input.txt') as f:
-    file = f.read().splitlines()
 
 def run(reindeer, time):
     timer = 0
