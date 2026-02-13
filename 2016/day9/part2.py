@@ -1,6 +1,8 @@
+from pathlib import Path
 print("advent of code 2016 day 9")
 
-with open('./input.txt') as f:
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:
     file = f.read().splitlines()
 
 length_of_decompressed_file = 0

@@ -1,7 +1,9 @@
+from pathlib import Path
 import re, string
 print("advent of code 2016 day 4")
 
-with open('./input.txt') as f:
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:
     file = f.read().splitlines()
 
 alphabet =  string.ascii_lowercase

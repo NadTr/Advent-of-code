@@ -1,6 +1,8 @@
+from pathlib import Path
 print("advent of code 2016 day 18")
 
-with open('./input.txt') as f:
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:
     line = f.read()
 
 def find_number_of_safe_tiles(line):
