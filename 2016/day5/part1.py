@@ -1,6 +1,6 @@
 from pathlib import Path
 import hashlib
-print("advent of code 2016 day 4")
+print("advent of code 2016 day 5")
 
 script_location = Path(__file__).absolute().parent
 with open(script_location /'input.txt') as f:
