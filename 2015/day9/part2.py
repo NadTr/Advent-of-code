@@ -35,4 +35,4 @@ for combi in routes:
     if longest_distance < distance:
          longest_distance = distance
 
-print("The distance of the shortest route is ", longest_distance)
+print("The distance of the longest route is ", longest_distance)
