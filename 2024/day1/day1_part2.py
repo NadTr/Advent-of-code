@@ -1,12 +1,13 @@
+from pathlib import Path
 print("advent of code 2024 day 1")
 
-global total_similarities
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:
+     file = f.read().splitlines()
+
 total_similarities = 0
 left_col=[]
 right_col=[]
-
-with open('./day1.txt') as f:
-    file = f.read().splitlines()
 
 for line in file:
     line = line.split()
