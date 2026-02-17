@@ -1,10 +1,11 @@
+from pathlib import Path
 print("advent of code 2024 day 4")
 
-global number_of_XMAS
-number_of_XMAS = 0
-
-with open('./day4.txt') as f:
+script_location = Path(__file__).absolute().parent
+with open(script_location /'input.txt') as f:    
     file = f.read().splitlines()
+
+number_of_XMAS = 0
 
 def find_all_XMAS_around(x, y):
     for i in [-1,1]:
