@@ -5,7 +5,7 @@ script_location = Path(__file__).absolute().parent
 with open(script_location /'input.txt') as f:
     file = f.read().splitlines()
 
-start_string = "abcdefgh"
+start_string = "efghdabc"
 letters_order = list(start_string)
 
 def swap(a,b):
