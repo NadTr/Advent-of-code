@@ -1,5 +1,4 @@
 from pathlib import Path
-import re
 print("advent of code 2018 day 2")
 
 script_location = Path(__file__).absolute().parent
@@ -19,7 +18,7 @@ for box_id in file:
         if count == 2 : double += 1
         elif count == 3 : triple += 1
         box_id = list(filter((letter).__ne__, box_id))
-        
+
     number_of_double += 1 if double > 0 else 0
     number_of_triple += 1 if triple > 0 else 0
 
