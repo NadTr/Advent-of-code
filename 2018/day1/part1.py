@@ -9,4 +9,4 @@ frequency = 0
 for digit in file:
     frequency += int(digit)
 
-print("The the resulting frequency is", frequency)
+print("The resulting frequency is", frequency)
