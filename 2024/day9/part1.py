@@ -10,8 +10,6 @@ checksum = 0
 
 def fill_disk(disk_map):
     for index in range(len(disk_map)):
-        # print(index, disk_map[index])
-        # index = int(index)
         for j in range(int(disk_map[index])):
             space = '.' if (index + 1)%2 ==0 else str(index//2)
             disk.append(space)
