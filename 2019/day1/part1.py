@@ -1,5 +1,5 @@
 from pathlib import Path
-print("advent of code 2018 day 1")
+print("advent of code 2019 day 1")
 
 script_location = Path(__file__).absolute().parent
 with open(script_location /'input.txt') as f:
