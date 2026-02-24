@@ -1,5 +1,4 @@
 from pathlib import Path
-from collections import Counter
 print("advent of code 2019 day 8")
 
 script_location = Path(__file__).absolute().parent
