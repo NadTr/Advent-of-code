@@ -38,7 +38,7 @@ for x in range(len(last_layer)):
     for y in range(len(last_layer[0])):
         for layer in range(len(img_layers)):
             if img_layers[layer][x][y] != "2":
-                last_layer[x][y] = " " if img_layers[layer][x][y] != "0" else chr(9608)
+                last_layer[x][y] = chr(9608) if img_layers[layer][x][y] != "0" else " "
                 break
 
 print_img(last_layer)
