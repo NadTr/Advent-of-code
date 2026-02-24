@@ -8,10 +8,10 @@ with open(script_location /'input.txt') as f:
     for ind in range(len(file)):
         file[ind] = int(file[ind])
 
-possibles_results = permutations(file, 2)
+possibles_results = permutations(file, 3)
 
 for possibles_result in possibles_results:
-    if possibles_result[0] + possibles_result[1] == 2020:
-         result = possibles_result[0] * possibles_result[1]
+    if possibles_result[0] + possibles_result[1] + possibles_result[2] == 2020:
+         result = possibles_result[0] * possibles_result[1] * possibles_result[2]
 
-print("The product of the two entries that sum to 2020 is", result)
+print("The product of the three entries that sum to 2020 is", result)
