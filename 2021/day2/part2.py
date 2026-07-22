@@ -6,15 +6,18 @@ with open(script_location /'input.txt') as f:
     file = f.read().splitlines()
 
 position = [0, 0]
+aim = 0
+
 for i in range(len(file)):
     step = file[i].split()
-    # print(step)
+
     if step[0] =="forward":
         position[0] += int(step[1])
+        position[1] += int(step[1])*aim
     else:
         if step[0] == "up":
-            position[1] -= int(step[1])
+            aim -= int(step[1])
         else:
-            position[1] += int(step[1])
+            aim += int(step[1])
 
 print("The multiplication of your final horizontal position by your final depth is",  position[0]* position[1])
