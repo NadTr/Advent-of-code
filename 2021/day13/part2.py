@@ -35,16 +35,15 @@ for line in file :
         instr = line[2].split('=')
         folding_instructions.append([instr[0], int(instr[1])])
 
-dots_count = 0
 paper = [[ '.' for _ in range(paper_size[0])] for _ in range(paper_size[1])]
 
 for dot in dots:
     paper[dot[1]][dot[0]] = '#'
 
-i = folding_instructions[0]
-paper = fold(paper, i[0], i[1])
+for i in folding_instructions:
+    paper = fold(paper, i[0], i[1])
+
+print("The code do you use to activate the infrared thermal imaging camera system is ")
 
 for line in paper:
-    dots_count += line.count('#')
-
-print("The number of dots are visible after completing just the first fold instruction is ",  dots_count)
+    print(''.join(c for c in line))
