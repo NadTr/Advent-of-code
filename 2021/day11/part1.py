@@ -19,14 +19,14 @@ def add_step():
         for j in range(len(grid[i])):
             grid[i][j] += 1
 
-def flash(x,y):
-    neighbors_x = range(max(0, x - 1), min(x + 2, len(grid)))
-    neighbors_y = range(max(0, y - 1), min(y + 2, len(grid[0])))
-    for nx in neighbors_x:
-        for ny in neighbors_y:
-            if grid[nx][ny] not in [0, 10]:
-                grid[nx][ny] += 1
-    grid[x][y] = 0
+def flash(y,x):
+    neighbors_y = range(max(0, y - 1), min(y + 2, len(grid)))
+    neighbors_x = range(max(0, x - 1), min(x + 2, len(grid[0])))
+    for ny in neighbors_y:
+        for nx in neighbors_x:
+            if grid[ny][nx] not in [0, 10]:
+                grid[ny][nx] += 1
+    grid[y][x] = 0
            
 
 # show_grid()
