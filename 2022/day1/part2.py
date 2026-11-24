@@ -19,4 +19,4 @@ for line in file:
 
 sorted_calories = sorted(elfs.values(), reverse=True)
 
-print("The maximum total Calories carried by one elf is", sum(sorted_calories[:3]))
+print("The maximum total Calories carried by the top 3 elfs is", sum(sorted_calories[:3]))

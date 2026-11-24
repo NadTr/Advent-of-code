@@ -8,9 +8,9 @@ with open(script_location /'input.txt') as f:
 elfs= {}
 elf = 1
 calories = 0
-for i in file:
-    if i.isdigit():
-        calories += int(i)
+for line in file:
+    if line.isdigit():
+        calories += int(line)
     else:
         elfs.update({elf : calories})
         elf += 1
